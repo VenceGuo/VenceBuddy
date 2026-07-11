@@ -1,0 +1,53 @@
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Build outputs
+dist/
+dist-electron/
+release/
+build/Release/
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Config with secrets
+config/secrets.json
+config/local.json
+
+# Cache
+.cache/
+.parcel-cache/
+.eslintcache
+
+# Test coverage
+coverage/
+
+# Temporary files
+*.tmp
+*.bak
+setup_output.log
+git_find.log
+check_tools.log
