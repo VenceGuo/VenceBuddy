@@ -1,0 +1,23 @@
+{
+  "baseUrl": "https://api.siliconflow.cn/v1",
+  "defaultModel": "Wan-AI/Wan2.2-T2V-A14B",
+  "defaultImageSize": "1280x720",
+  "pollInterval": 5000,
+  "timeout": 600000,
+  "models": [
+    {
+      "id": "Wan-AI/Wan2.2-T2V-A14B",
+      "type": "text-to-video",
+      "description": "Wan2.2 文生视频, MoE 架构",
+      "imageSizes": ["1280x720", "720x1280", "960x960"],
+      "price": "~2 元/视频"
+    },
+    {
+      "id": "Wan-AI/Wan2.2-I2V-A14B",
+      "type": "image-to-video",
+      "description": "Wan2.2 图生视频, 基于参考图片生成",
+      "imageSizes": ["1280x720", "720x1280", "960x960"],
+      "price": "~2 元/视频"
+    }
+  ]
+}
