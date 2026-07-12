@@ -1,27 +1,36 @@
 /**
- * SeedDance 视频生成 Skill
- * OpenClaw Skill 格式，封装为工具供 LLM 调用
+ * 视频生成 Skill
+ * 使用硅基流动 Wan2.2 系列模型，支持文生视频和图生视频
  */
 
-import { SeedDanceClient } from '../models/seeddance';
+import { SiliconFlowVideoClient } from '../models/siliconflow-video';
 
 const skill = {
   name: 'generate_video',
-  description: 'Generate a video from a text prompt or an image. Supports text-to-video and image-to-video modes.',
+  description: 'Generate a video from a text prompt or an image using SiliconFlow Wan2.2 models. Supports text-to-video (T2V) and image-to-video (I2V).',
   parameters: {
     type: 'object',
     properties: {
       prompt: {
         type: 'string',
-        description: 'Text description of the video to generate',
+        description: 'Text description of the video to generate. Be descriptive about scenes, camera movements, and visual style.',
       },
       image: {
         type: 'string',
-        description: 'URL of a reference image for image-to-video mode (optional)',
+        description: 'URL or base64 of a reference image for image-to-video mode. If provided, the I2V model will be used automatically.',
       },
-      model: {
+      image_size: {
         type: 'string',
-        description: 'Model to use: seedance-pro-5s, seedance-pro-10s, seedance-lite-5s, etc.',
+        enum: ['1280x720', '720x1280', '960x960'],
+        description: 'Output video resolution. 1280x720 = landscape, 720x1280 = portrait, 960x960 = square. Default: 1280x720',
+      },
+      negative_prompt: {
+        type: 'string',
+        description: 'Negative prompt - things to avoid in the generated video (optional)',
+      },
+      seed: {
+        type: 'number',
+        description: 'Random seed for reproducible results (optional)',
       },
     },
     required: ['prompt'],
