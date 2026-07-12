@@ -141,9 +141,9 @@ export class DeepSeekClient {
 }
 
 export const defaultConfig: DeepSeekConfig = {
-  baseUrl: 'https://api.deepseek.com/v1',
-  apiKey: process.env.DEEPSEEK_API_KEY || '',
-  model: 'deepseek-chat',
+  baseUrl: process.env.DEEPSEEK_API_BASE || 'https://api.siliconflow.cn/v1',
+  apiKey: process.env.SILICONFLOW_API_KEY || process.env.DEEPSEEK_API_KEY || '',
+  model: process.env.DEEPSEEK_MODEL || 'deepseek-ai/DeepSeek-V4-Pro',
   contextWindow: 128000,
   toolCalling: true,
 };
